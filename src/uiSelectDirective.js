@@ -229,7 +229,7 @@ uis.directive('uiSelect',
 
           element[0].style.position = 'absolute';
           element[0].style.left = offset.left + 'px';
-          element[0].style.top = offset.top + 'px';
+          //element[0].style.top = offset.top + 'px';
           element[0].style.width = offset.width + 'px';
         }
 
@@ -245,7 +245,7 @@ uis.directive('uiSelect',
 
           element[0].style.position = '';
           element[0].style.left = '';
-          element[0].style.top = '';
+          //element[0].style.top = '';
           element[0].style.width = originalWidth;
         }
 
@@ -272,7 +272,7 @@ uis.directive('uiSelect',
               // Determine if the direction of the dropdown needs to be changed.
               if (offset.top + offset.height + offsetDropdown.height > $document[0].documentElement.scrollTop + $document[0].documentElement.clientHeight) {
                 dropdown[0].style.position = 'absolute';
-                dropdown[0].style.top = (offsetDropdown.height * -1) + 'px';
+                //dropdown[0].style.top = (offsetDropdown.height * -1) + 'px';
                 element.addClass(directionUpClassName);
               }
 
@@ -286,7 +286,7 @@ uis.directive('uiSelect',
 
               // Reset the position of the dropdown.
               dropdown[0].style.position = '';
-              dropdown[0].style.top = '';
+              //dropdown[0].style.top = '';
               element.removeClass(directionUpClassName);
           }
         });
