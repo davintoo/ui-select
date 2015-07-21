@@ -359,7 +359,7 @@ uis.controller('uiSelectCtrl',
             ctrl.sizeSearchInput = function () {
 
                 //var input = ctrl.searchInput[0],
-                var container = ctrl.searchInput.parent().parent()[0];
+                //var container = ctrl.searchInput.parent().parent()[0];
                     //calculateContainerWidth = function () {
                     //    // Return the container width only if the search input is visible
                     //    return container.clientWidth * !!input.offsetParent;
@@ -386,9 +386,9 @@ uis.controller('uiSelectCtrl',
                 //  }
                 //});
 
-                container.click(function () {
-                    ctrl.activate();
-                });
+                //container.click(function () {
+                //    ctrl.activate();
+                //});
             };
 
             function _handleDropDownSelection(key) {

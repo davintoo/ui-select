@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.12.0 - 2015-07-21T08:21:40.071Z
+ * Version: 0.12.0 - 2015-07-21T08:41:05.719Z
  * License: MIT
  */
 
@@ -596,7 +596,7 @@ uis.controller('uiSelectCtrl',
             ctrl.sizeSearchInput = function () {
 
                 //var input = ctrl.searchInput[0],
-                var container = ctrl.searchInput.parent().parent()[0];
+                //var container = ctrl.searchInput.parent().parent()[0];
                     //calculateContainerWidth = function () {
                     //    // Return the container width only if the search input is visible
                     //    return container.clientWidth * !!input.offsetParent;
@@ -623,9 +623,9 @@ uis.controller('uiSelectCtrl',
                 //  }
                 //});
 
-                container.click(function () {
-                    ctrl.activate();
-                });
+                //container.click(function () {
+                //    ctrl.activate();
+                //});
             };
 
             function _handleDropDownSelection(key) {
