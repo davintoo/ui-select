@@ -355,24 +355,24 @@ uis.controller('uiSelectCtrl',
                 return isLocked;
             };
 
-            var sizeWatch = null;
+            //var sizeWatch = null;
             ctrl.sizeSearchInput = function () {
 
-                var input = ctrl.searchInput[0],
-                    container = ctrl.searchInput.parent().parent()[0],
-                    calculateContainerWidth = function () {
-                        // Return the container width only if the search input is visible
-                        return container.clientWidth * !!input.offsetParent;
-                    },
-                    updateIfVisible = function (containerWidth) {
-                        if (containerWidth === 0) {
-                            return false;
-                        }
-                        var inputWidth = containerWidth - input.offsetLeft - 10;
-                        if (inputWidth < 50) inputWidth = containerWidth;
-                        ctrl.searchInput.css('width', inputWidth + 'px');
-                        return true;
-                    };
+                //var input = ctrl.searchInput[0],
+                var container = ctrl.searchInput.parent().parent()[0];
+                    //calculateContainerWidth = function () {
+                    //    // Return the container width only if the search input is visible
+                    //    return container.clientWidth * !!input.offsetParent;
+                    //},
+                    //updateIfVisible = function (containerWidth) {
+                    //    if (containerWidth === 0) {
+                    //        return false;
+                    //    }
+                    //    var inputWidth = containerWidth - input.offsetLeft - 10;
+                    //    if (inputWidth < 50) inputWidth = containerWidth;
+                    //    ctrl.searchInput.css('width', inputWidth + 'px');
+                    //    return true;
+                    //};
 
                 //ctrl.searchInput.css('width', '10px');
                 //$timeout(function() { //Give tags time to render correctly
@@ -386,9 +386,9 @@ uis.controller('uiSelectCtrl',
                 //  }
                 //});
 
-                $(container).click(function () {
+                container.click(function () {
                     ctrl.activate();
-                })
+                });
             };
 
             function _handleDropDownSelection(key) {
