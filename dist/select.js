@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.12.0 - 2015-07-21T08:41:05.719Z
+ * Version: 0.12.0 - 2015-07-31T11:30:43.193Z
  * License: MIT
  */
 
@@ -592,40 +592,36 @@ uis.controller('uiSelectCtrl',
                 return isLocked;
             };
 
-            //var sizeWatch = null;
+            var sizeWatch = null;
             ctrl.sizeSearchInput = function () {
 
-                //var input = ctrl.searchInput[0],
-                //var container = ctrl.searchInput.parent().parent()[0];
-                    //calculateContainerWidth = function () {
-                    //    // Return the container width only if the search input is visible
-                    //    return container.clientWidth * !!input.offsetParent;
-                    //},
-                    //updateIfVisible = function (containerWidth) {
-                    //    if (containerWidth === 0) {
-                    //        return false;
-                    //    }
-                    //    var inputWidth = containerWidth - input.offsetLeft - 10;
-                    //    if (inputWidth < 50) inputWidth = containerWidth;
-                    //    ctrl.searchInput.css('width', inputWidth + 'px');
-                    //    return true;
-                    //};
+                var input = ctrl.searchInput[0],
+                    container = ctrl.searchInput.parent().parent()[0],
+                    calculateContainerWidth = function () {
+                        // Return the container width only if the search input is visible
+                        return $(container).width();
+                    },
+                    updateIfVisible = function (containerWidth) {
+                        if (containerWidth === 0) {
+                            return false;
+                        }
+                        var inputWidth = containerWidth - input.offsetLeft;
+                        if (inputWidth < 50) inputWidth = containerWidth;
+                        ctrl.searchInput.css('width', inputWidth + 'px');
+                        return true;
+                    };
 
-                //ctrl.searchInput.css('width', '10px');
-                //$timeout(function() { //Give tags time to render correctly
-                //  if (sizeWatch === null && !updateIfVisible(calculateContainerWidth())) {
-                //    sizeWatch = $scope.$watch(calculateContainerWidth, function(containerWidth) {
-                //      if (updateIfVisible(containerWidth)) {
-                //        sizeWatch();
-                //        sizeWatch = null;
-                //      }
-                //    });
-                //  }
-                //});
-
-                //container.click(function () {
-                //    ctrl.activate();
-                //});
+                ctrl.searchInput.css('width', '10px');
+                $timeout(function () { //Give tags time to render correctly
+                    if (sizeWatch === null && !updateIfVisible(calculateContainerWidth())) {
+                        sizeWatch = $scope.$watch(calculateContainerWidth, function (containerWidth) {
+                            if (updateIfVisible(containerWidth)) {
+                                sizeWatch();
+                                sizeWatch = null;
+                            }
+                        });
+                    }
+                });
             };
 
             function _handleDropDownSelection(key) {
