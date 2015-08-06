@@ -8,7 +8,9 @@ uis.directive('uiSelectMatch', ['uiSelectConfig', function(uiSelectConfig) {
       // Gets theme attribute from parent (ui-select)
       var theme = tElement.parent().attr('theme') || uiSelectConfig.theme;
       var multi = tElement.parent().attr('multiple');
-      return theme + (multi ? '/match-multiple.tpl.html' : '/match.tpl.html');
+      var type = tElement.parent().attr('type');
+      var templatePath = (type) ? theme + "/" + type + (multi ? '/match-multiple.tpl.html' : '/match.tpl.html') : theme + (multi ? '/match-multiple.tpl.html' : '/match.tpl.html');
+      return templatePath;
     },
     link: function(scope, element, attrs, $select) {
       $select.lockChoiceExpression = attrs.uiLockChoice;
