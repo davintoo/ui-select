@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.12.0 - 2015-08-06T10:37:48.602Z
+ * Version: 0.12.0 - 2015-08-06T11:41:18.681Z
  * License: MIT
  */
 
@@ -224,7 +224,7 @@ body > .ui-select-bootstrap.open {
     color: #333;
     white-space: normal;
     text-indent: -10px;
-    font-size: 80%;
+    font-size: 90%;
 }
 
 .ui-select-bootstrap .ui-select-choices-row>a:hover, .ui-select-bootstrap .ui-select-choices-row>a:focus {
