@@ -396,6 +396,11 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
         });
       });
 
+      $('.custom-ui-select-table').on('click', function () {
+        $('.custom-ui-select-table *:input[type!=hidden]:first').focus();
+      });
+
+
     }
   };
 }]);

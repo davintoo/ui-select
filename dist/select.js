@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.12.0 - 2015-07-31T11:30:43.193Z
+ * Version: 0.12.0 - 2015-08-26T11:25:00.642Z
  * License: MIT
  */
 
@@ -1492,6 +1492,11 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
           $selectMultiple.activeMatchIndex = -1;
         });
       });
+
+        $('.custom-ui-select-table').on('click', function () {
+            $('.custom-ui-select-table *:input[type!=hidden]:first').focus();
+        });
+
 
     }
   };
