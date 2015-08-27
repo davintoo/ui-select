@@ -395,12 +395,6 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
           $selectMultiple.activeMatchIndex = -1;
         });
       });
-
-      $('.custom-ui-select-table').on('click', function () {
-        $('.custom-ui-select-table *:input[type!=hidden]:first').focus();
-      });
-
-
     }
   };
 }]);

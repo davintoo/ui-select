@@ -384,7 +384,7 @@ uis.controller('uiSelectCtrl',
                             }
                         });
                     }
-                });
+                }, 1000);
             };
 
             function _handleDropDownSelection(key) {
