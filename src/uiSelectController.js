@@ -422,18 +422,13 @@ uis.controller('uiSelectCtrl',
             }
 
             // Bind to keyboard shortcuts
-            ctrl.searchInput.on('keydown', function (e) {
+            ctrl.searchInput.on('keypress', function (e) {
+                //console.log('keypress', e, e.key);
+                var char = e.key || String.fromCharCode(e.charCode);
 
                 var key = e.which;
-                var keyCode = e.keyCode;
-
-                // if(~[KEY.ESC,KEY.TAB].indexOf(key)){
-                //   //TODO: SEGURO?
-                //   ctrl.close();
-                // }
-                if(e.shiftKey && keyCode == 191) {//for cyrylics ,
-                    keyCode = 188;
-                }
+                var keyCode = e.charCode;
+                //console.log('keypress', keyCode, KEY.MAP[keyCode], char, e);
 
                 $scope.$apply(function () {
 
@@ -443,7 +438,7 @@ uis.controller('uiSelectCtrl',
                         _handleDropDownSelection(key);
                         if (ctrl.taggingTokens.isActivated) {
                             for (var i = 0; i < ctrl.taggingTokens.tokens.length; i++) {
-                                if (ctrl.taggingTokens.tokens[i] === KEY.MAP[keyCode]) {
+                                if (ctrl.taggingTokens.tokens[i] === KEY.MAP[keyCode] || ctrl.taggingTokens.tokens[i] === char) {
                                     // make sure there is a new value to push via tagging
                                     if (ctrl.search.length > 0) {
                                         tagged = true;
@@ -453,7 +448,10 @@ uis.controller('uiSelectCtrl',
                             if (tagged) {
                                 $timeout(function () {
                                     ctrl.searchInput.triggerHandler('tagged');
-                                    var newItem = ctrl.search.replace(KEY.MAP[keyCode], '').trim();
+                                    var newItem = ctrl.search
+                                        .replace(KEY.MAP[keyCode], '')
+                                        .replace(char, '')
+                                        .trim();
                                     if (ctrl.tagging.fct) {
                                         newItem = ctrl.tagging.fct(newItem);
                                     }
